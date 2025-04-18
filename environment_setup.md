@@ -42,10 +42,15 @@
     brew -v
     ```
 
+>[!TIP]
+アプリを開くときは Launchpad を使うのが一般的だが、**Spotlight** 検索を使うと、キーボードだけで開くことができる。Spotlight は Command + スペースバー で起動する。
 
 ## Git と GitHub
 ### インストール ~ セットアップ
-1. Homebrew のインストール時に Git もインストールされているはずなので、`git -v` で確認する。
+1. Homebrew のインストール時に Git もインストールされているはずなので、次のコマンドで確認する。
+    ```
+    git -v
+    ``` 
 2. GitHub アカウントを会社の Gmail アドレスを使って作成する。[GitHub](https://github.co.jp/) のサイトにアクセスし「サインアップ」から作成できる。
 3. GitHub Desktop アプリをインストールする。[ダウンロードページ](https://github.com/apps/desktop?ref_cta=download+desktop&ref_loc=installing+github+desktop&ref_page=docs) の「Download now」> 「Download for macOS」からインストールできる。
 4. GitHub Desktop を開き、上で作成したアカウントでサインインする。
