@@ -42,8 +42,6 @@
     brew -v
     ```
 
->[!TIP]
-アプリを開くときは Launchpad を使うのが一般的だが、**Spotlight** 検索を使うと、キーボードだけで開くことができる。Spotlight は Command + スペースバー で起動する。
 
 ## Git と GitHub
 ### インストール ~ セットアップ
