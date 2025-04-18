@@ -1,22 +1,86 @@
-# 新卒の環境構築
+# Mac の環境構築
 
-## アプリをインストールする
-### Homebrew（macOS用のパッケージマネージャー）
-1.  [Homebrew](https://brew.sh/) のサイトにアクセスして、「インストール」下のコマンドをコピーし、ターミナルに貼り付けて実行。
-2.  ターミナルで `brew -v` を実行し「Homebrew [バージョン]」が表示されれば完了。もし「zsh: command not found: brew」と表示されたら、以下を実行することで `brew` コマンドのパスを通す。
-3. 　ターミナル上で `cd ~` を実行しホームディレクトリに移動。`ls -a` で .zshrc ファイルが存在するか確認する。もしなければ，`touch .zshrc` で .zshrc ファイルを作成する。
-4. `open .zshrc` で　.zshrc ファイルを開き `export PATH=$PATH:/opt/homebrew/bin/`をファイルに貼り付けて保存する。
-5. `source ~/.zshrc` で zsh を更新する。これで `brew` コマンドが使用可になったはずなので、再度　`brew -v`　を実行して確かめる。
+## Homebrew
+### インストール
+1. ターミナルを開く。
+    > [!TIP] 
+    > アプリを開くときは Launchpad を使うのが一般的だが、**Spotlight** 検索を使うと、キーボードだけで開くことができる。Spotlight は Command + スペースバー で起動する。
+2. [Homebrew](https://brew.sh/) のサイトにアクセスして、インストール用のコマンドをコピーし、ターミナルに貼り付けて実行。
+3. ターミナルで次のコマンドを実行する。
+    ```
+    brew -v
+    ```
+    `Homebrew [バージョン]` と表示されれば完了。もし `zsh: command not found: brew` と表示されたら、`brew` コマンドの**パスを通す**必要がある。
 
-### Git, GitHub
+### パスを通す
+1. ホームディレクトリに移動。
+    ```
+    cd ~
+    ```
+2. ディレクトリ内のファイルを全て表示する。
+    ```
+    ls -a
+    ```
+3. 表示されたリストに .zshrc ファイルが存在するか確認する。もしなければ，次のコマンドで .zshrc ファイルを作成する。
+    ```
+    touch .zshrc
+    ```
+4. .zshrc ファイルを開く。
+    ```
+    open .zshrc
+    ```
+5. 開いた .zshrc ファイルに次を貼り付けて保存し、閉じる。
+    ```
+    export PATH=$PATH:/opt/homebrew/bin/
+    ```
+6.  zsh を更新する。
+    ```
+    source ~/.zshrc
+    ```
+7. 以上で `brew` コマンドが使用可になったはず。再度次のコマンドを実行し、バージョンが表示されるか確かめる。
+    ```
+    brew -v
+    ```
+
+
+## Git と GitHub
+### インストール ~ セットアップ
 1. Homebrew のインストール時に Git もインストールされているはずなので、`git -v` で確認する。
 2. GitHub アカウントを会社の Gmail アドレスを使って作成する。[GitHub](https://github.co.jp/) のサイトにアクセスし「サインアップ」から作成できる。
 3. GitHub Desktop アプリをインストールする。[ダウンロードページ](https://github.com/apps/desktop?ref_cta=download+desktop&ref_loc=installing+github+desktop&ref_page=docs) の「Download now」> 「Download for macOS」からインストールできる。
 4. GitHub Desktop を開き、上で作成したアカウントでサインインする。
+   
+### Github に SSH Key を設定
+1. ターミナルで次のコマンドを実行し、キーファイルを生成する。
+     ```
+     ssh-keygen
+     ```
+2. 次のコマンドを実行し、`id_rsa` と `id_rsa.pub` の2つのファイルの存在を確認する。
+    ```
+    ls ~/.ssh/
+    ```
+3. GitHub にアクセスし、右上のプロフィールアイコン > Settings > SSH and GPG Keys > New SSH Key を開く。
+4. Title を入力する。例: [ユーザー名]_public_key
+5. Key type は「Authentication Key」。
+6. Key には上で生成した `id_rsa.pub` ファイルの中身をコピーして貼り付ける。
+7. 「Add SSH Key」ボタンで完了。
+8. ターミナルで次を実行し、「yes」で完了。
+    ```
+    ssh -T git@github.com
+    ```
+   
+### バージョン管理を体験
+1. GitHub にアクセスし、左上の「New」から新しい**レポジトリ**を作成する。「Repository name」を任意に入力し、「Private」に設定、「Add a README file」にチェックを入れて、「Create repository」で作成完了。
+2. 作成したレポジトリを開いて、「Code」の SSH URL をコピーする。
+3. レポジトリをローカルに**クローン**する。方法は以下の2つ。
+   - ターミナルを開き、次を実行するとカレントディレクトリにクローンできる。
+        ```
+        git clone [上でコピーした SSH URL]
+        ```
+   - GitHub Desktop アプリを開き、左上の Current Repository > Add > Current Repository > URL を開く。上でコピーした SSH URL を貼り付ける。Local Path は /Users/[Mac のユーザ名] とすると、ホームディレクトリにクローンできる。
 
-### Docker 
+
+## Docker
+### インストール
 1. [Docker Desktop](https://www.docker.com/ja-jp/products/docker-desktop/) のサイトからアプリをインストール。
 2. アプリを開いて、アカウントを会社の Gmail アドレスを使って作成する。
-
-
-## アプリを使ってみる
