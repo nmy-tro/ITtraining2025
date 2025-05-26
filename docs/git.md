@@ -38,7 +38,7 @@
 - `git add <FILE>`: ファイルを Working Tree から Index（コミット前の準備場所、 Staging Area とも呼ばれる）に登録。
   - `<FILE>` で `.` を指定するとワイルドカードを意味する。
 - `git status`: Working Tree、Index の作業状態を確認。
-- `git commmit -m "コメント"`: Index に登録した作業内容をコミット。
+- `git commit -m "コメント"`: Index に登録した作業内容をコミット。
   - `"hoge!"` のように " (ダブルクオート) で囲ったコメントに ! が含まれるとエラーになる。" ではなく ' (シングルクオート) にすると解決する。
   - `--amend` オプションで直前のコミットメッセージを修正できる
 - `git log`: コミット履歴を確認。
